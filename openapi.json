@@ -1,0 +1,502 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Chat Telegram Service API",
+    "version": "0.1.0"
+  },
+  "servers": [
+    {
+      "url": "/chat_telegram/api"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health Check",
+        "operationId": "health_check_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthCheckResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/setting/auth": {
+      "post": {
+        "tags": [
+          "Setting"
+        ],
+        "summary": "Auth Telegram By Phone",
+        "operationId": "auth_telegram_by_phone_setting_auth_post",
+        "parameters": [
+          {
+            "name": "x-request-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "55d012f5-1dc6-4279-9af2-c561ce0ee7cb",
+              "title": "X-Request-Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean",
+                  "title": "Response Auth Telegram By Phone Setting Auth Post"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/setting/auth/{code}": {
+      "post": {
+        "tags": [
+          "Setting"
+        ],
+        "summary": "Auth Telegram By Phone",
+        "operationId": "auth_telegram_by_phone_setting_auth__code__post",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Code"
+            }
+          },
+          {
+            "name": "x-request-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "55d012f5-1dc6-4279-9af2-c561ce0ee7cb",
+              "title": "X-Request-Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean",
+                  "title": "Response Auth Telegram By Phone Setting Auth  Code  Post"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/support/users/{user_id}/setting/{setting_id}": {
+      "post": {
+        "tags": [
+          "Support"
+        ],
+        "summary": "Send Message Telegram",
+        "operationId": "send_message_telegram_support_users__user_id__setting__setting_id__post",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "User Id"
+            }
+          },
+          {
+            "name": "setting_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Setting Id"
+            }
+          },
+          {
+            "name": "x-request-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "55d012f5-1dc6-4279-9af2-c561ce0ee7cb",
+              "title": "X-Request-Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MessageSchema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageSchemaSent"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HealthCheckDetailsSchema": {
+        "properties": {
+          "database": {
+            "$ref": "#/components/schemas/StatusDatabase"
+          },
+          "redis": {
+            "$ref": "#/components/schemas/StatusRedis"
+          },
+          "uptime": {
+            "type": "string",
+            "title": "Uptime"
+          }
+        },
+        "type": "object",
+        "required": [
+          "database",
+          "redis",
+          "uptime"
+        ],
+        "title": "HealthCheckDetailsSchema"
+      },
+      "HealthCheckResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "details": {
+            "$ref": "#/components/schemas/HealthCheckDetailsSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "details"
+        ],
+        "title": "HealthCheckResponse"
+      },
+      "MessageSchema": {
+        "properties": {
+          "data": {
+            "type": "string",
+            "title": "Данные"
+          },
+          "title": {
+            "type": "string",
+            "title": "Заголовок к данным",
+            "default": ""
+          },
+          "type_message": {
+            "$ref": "#/components/schemas/TypeMessageEnum",
+            "title": "Тип сообщения",
+            "default": "text"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "MessageSchema"
+      },
+      "MessageSchemaSent": {
+        "properties": {
+          "message_id": {
+            "type": "string",
+            "title": "id сообщения"
+          }
+        },
+        "type": "object",
+        "required": [
+          "message_id"
+        ],
+        "title": "MessageSchemaSent"
+      },
+      "ServiceErrorPydantic": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "$ref": "#/components/schemas/TypeErrorEnum"
+          },
+          "translate_path": {
+            "type": "string",
+            "title": "Translate Path"
+          },
+          "details": {
+            "type": "string",
+            "title": "Details"
+          }
+        },
+        "type": "object",
+        "required": [
+          "message",
+          "type",
+          "translate_path",
+          "details"
+        ],
+        "title": "ServiceErrorPydantic"
+      },
+      "StatusDatabase": {
+        "type": "string",
+        "enum": [
+          "connected",
+          "disconnected"
+        ],
+        "title": "StatusDatabase"
+      },
+      "StatusRedis": {
+        "type": "string",
+        "enum": [
+          "available",
+          "unavailable"
+        ],
+        "title": "StatusRedis"
+      },
+      "TypeErrorEnum": {
+        "type": "string",
+        "enum": [
+          "user error",
+          "server error",
+          "unauthorized",
+          "forbidden",
+          "not found",
+          "conflict"
+        ],
+        "title": "TypeErrorEnum"
+      },
+      "TypeMessageEnum": {
+        "type": "string",
+        "enum": [
+          "text",
+          "video",
+          "audio",
+          "image"
+        ],
+        "title": "TypeMessageEnum"
+      }
+    }
+  }
+}
