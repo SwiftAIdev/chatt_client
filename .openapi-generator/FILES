@@ -1,7 +1,6 @@
 .github/workflows/python.yml
 .gitignore
 .gitlab-ci.yml
-.openapi-generator-ignore
 .travis.yml
 README.md
 chatt_client/__init__.py
@@ -44,16 +43,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_default_api.py
-test/test_health_check_details_schema.py
-test/test_health_check_response.py
-test/test_message_schema.py
-test/test_message_schema_sent.py
-test/test_service_error_pydantic.py
-test/test_setting_api.py
-test/test_status_database.py
-test/test_status_redis.py
-test/test_support_api.py
-test/test_type_error_enum.py
-test/test_type_message_enum.py
 tox.ini
